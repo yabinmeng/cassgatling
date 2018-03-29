@@ -104,7 +104,7 @@ class MyTestSimu extends Simulation {
 
   // Statement for goid table: insert
   val insertStmt = session.prepare(s"""UPDATE $test_tbl
-                                       SET cob=?, colc=colc+?, cold=cold+?, cole=?
+                                       SET colb=?, colc=colc+?, cold=cold+?, cole=?
                                        WHERE cola=?""")
 
   val feeder = Iterator.continually(
@@ -117,7 +117,7 @@ class MyTestSimu extends Simulation {
           "randomCole" -> random.nextBoolean()        
           ))
 
-  val scnGoid = scenario("My Test Table Load Scenario").repeat(1) {
+  val myTestScn = scenario("My Test Table Load Scenario").repeat(1) {
     feed(feeder)
     .exec(cql("insertStmt")
         .execute(stmt_GoidInsert)
@@ -126,7 +126,7 @@ class MyTestSimu extends Simulation {
   }
 
   setUp(
-    scnGoid.inject(
+    myTestScn.inject(
       rampUsersPerSec(20) to 50 during(12 minutes)
     ).protocols(cqlConfig),
   )
