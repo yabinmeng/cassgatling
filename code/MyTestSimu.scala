@@ -15,9 +15,14 @@ import scala.collection.immutable.{HashMap, ListSet}
 class MyTestSimu extends Simulation {
   val keyspace = "testks"
   val test_tbl = "tbl1"
-  val cluster = Cluster.builder().addContactPoint("127.0.0.1").build()
+  
+  val cluster = Cluster.builder()
+                .addContactPoint("127.0.0.1")
+                .build()
+  
   val session = cluster.connect()
-  session.execute(s"""CREATE KEYSPACE IF NOT EXISTS $keyspace WITH replication = { 'class' : 'NetworkTopologyStrategy', 'DC1': '2' }""")
+  session.execute(s"""CREATE KEYSPACE IF NOT EXISTS $keyspace 
+                      WITH replication = { 'class' : 'NetworkTopologyStrategy', 'DC1': '2' }""")
 
   session.execute(s"USE $keyspace")
   val cqlConfig = cql.session(session)
