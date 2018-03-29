@@ -69,7 +69,7 @@ class MyTestSimu extends Simulation {
 
     var i = 0
     do  {
-      resgrpSet += random.nextInt()
+      myIntSet += random.nextInt()
       i = i + 1
     } while (i < itemNum)
 
@@ -103,7 +103,7 @@ class MyTestSimu extends Simulation {
     var i = 0
     do {
       val intList2 = List.fill[Int](2)(random.nextInt()).asJava
-      objectsMap += (genRandomString(22) -> intList2)
+      myStrTup2Map += (genRandomString(22) -> intList2)
 
       i = i + 1
 
