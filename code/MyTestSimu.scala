@@ -4,7 +4,8 @@ import scala.concurrent.duration.DurationInt
 
 import com.datastax.driver.core.Cluster
 import com.datastax.driver.core.ConsistencyLevel
-import com.datastax.driver.core.PlainTextAuthProvider;
+import com.datastax.driver.core.PlainTextAuthProvider
+import com.datastax.driver.core.policies.DCAwareRoundRobinPolicy
 
 import io.gatling.core.Predef._
 import io.gatling.core.scenario.Simulation
@@ -22,7 +23,8 @@ class MyTestSimu extends Simulation {
   val cluster = Cluster.builder()
                 .addContactPoint(contactPoints)
                 .withAuthProvider(new PlainTextAuthProvider("cassandra", "cassandra"))
-                .withLocalDc(localDCName)
+                .withLoadBalancingPolicy(new TokenAwarePolicy(
+                    DCAwareRoundRobinPolicy.builder().withLocalDc(localDCName).build()))
                 .build()
 
   val session = cluster.connect()
