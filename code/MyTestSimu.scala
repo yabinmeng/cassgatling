@@ -17,10 +17,12 @@ class MyTestSimu extends Simulation {
   val keyspace = "testks"
   val test_tbl = "tbl1"
   val contactPoints = "10.240.0.4"
+  val localDCName = "DC1"
 
   val cluster = Cluster.builder()
                 .addContactPoint(contactPoints)
                 .withAuthProvider(new PlainTextAuthProvider("cassandra", "cassandra"))
+                .withLocalDc(localDCName)
                 .build()
 
   val session = cluster.connect()
