@@ -5,6 +5,7 @@ import scala.concurrent.duration.DurationInt
 import com.datastax.driver.core.Cluster
 import com.datastax.driver.core.ConsistencyLevel
 import com.datastax.driver.core.PlainTextAuthProvider
+import com.datastax.driver.core.policies.TokenAwarePolicy
 import com.datastax.driver.core.policies.DCAwareRoundRobinPolicy
 
 import io.gatling.core.Predef._
