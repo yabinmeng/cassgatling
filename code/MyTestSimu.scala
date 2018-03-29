@@ -68,7 +68,7 @@ class MyTestSimu extends Simulation {
 
   // generate a set with random number of integers
   def genRandomIntSet2() : java.util.Set[Int] = {
-    return genRandomResgrpSet().asJava
+    return genRandomIntSet().asJava
   }
 
   // generate a map with a random number of items with
