@@ -38,10 +38,10 @@ class MyTestSimu extends Simulation {
   // Create Test Table
   session.execute(s"""CREATE TABLE IF NOT EXISTS $test_tbl (
                         cola text PRIMARY KEY,
-                        cob text,
+                        colb text,
                         colc map<text, frozen<list<int>>>,
                         cold set<int>,
-                        colc boolean
+                        cole boolean
                       ) WITH compaction = {'class': 'LeveledCompactionStrategy'}
                         AND gc_grace_seconds = 172800;
                    """)
