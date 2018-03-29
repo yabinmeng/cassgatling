@@ -67,7 +67,7 @@ class MyTestSimu extends Simulation {
   }
 
   // generate a set with random number of integers
-  def genRandomIntSetJava() : java.util.Set[Int] = {
+  def genRandomIntSet2() : java.util.Set[Int] = {
     return genRandomResgrpSet().asJava
   }
 
@@ -112,8 +112,8 @@ class MyTestSimu extends Simulation {
       Map(
           "randomCola" -> genRandomString(12),
           "randomColb" -> genRandomString(23),
-          "randomColc" -> genRandomObjectsMap2(),
-          "randomCobd" -> genRandomResgrpSet2(),
+          "randomColc" -> genRandomIntSet2(),
+          "randomCobd" -> genRandomStrTup2Map2(),
           "randomCole" -> random.nextBoolean()        
           ))
 
@@ -121,7 +121,7 @@ class MyTestSimu extends Simulation {
     feed(feeder)
     .exec(cql("insertStmt")
         .execute(stmt_GoidInsert)
-        .withParams("${randomColb}", "${randomColb}", "${randomColc}", "${randomCold}", "${randomCola}")
+        .withParams("${randomColb}", "${randomColc}", "${randomCold}", "${randomCole}", "${randomCola}")
         .consistencyLevel(ConsistencyLevel.LOCAL_ONE))
   }
 
