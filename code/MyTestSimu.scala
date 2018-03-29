@@ -56,7 +56,7 @@ class MyTestSimu extends Simulation {
   def genRandomIntSet() : Set[Int] = {
 
     val itemNum : Int = random.nextInt(MAX_SET_ITEM_NUM)
-    var resgrpSet : Set[Int] = new ListSet[Int]()
+    var myIntSet : Set[Int] = new ListSet[Int]()
 
     var i = 0
     do  {
@@ -64,7 +64,7 @@ class MyTestSimu extends Simulation {
       i = i + 1
     } while (i < itemNum)
 
-    return resgrpSet
+    return myIntSet
   }
 
   // generate a set with random number of integers
@@ -88,8 +88,8 @@ class MyTestSimu extends Simulation {
   // note: there is no native "Tuple<int, int>" type in Java, use a List with 2 integers
   //       to simulate
   def genRandomStrTup2Map2() : java.util.Map[String, java.util.List[Int]] = {
-    var objectsMap = new HashMap[String, java.util.List[Int]]()
     val itemNum : Int = random.nextInt(MAX_MAP_ITEM_NUM)
+    var myStrTup2Map = new HashMap[String, java.util.List[Int]]()
 
     var i = 0
     do {
@@ -100,7 +100,7 @@ class MyTestSimu extends Simulation {
 
     } while (i < itemNum)
 
-    return objectsMap.asJava
+    return myStrTup2Map.asJava
   }
 
   // Upsert Statement
