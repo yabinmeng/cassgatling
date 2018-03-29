@@ -141,7 +141,7 @@ class MyTestSimu extends Simulation {
   setUp(
     myTestScn.inject(
       rampUsersPerSec(20) to 50 during(12 minutes)
-    ).protocols(cqlConfig),
+    ).protocols(cqlConfig)
   )
 
   after(cluster.close())
