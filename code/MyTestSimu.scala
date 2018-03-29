@@ -126,7 +126,7 @@ class MyTestSimu extends Simulation {
           "randomCola" -> genRandomString(12),
           "randomColb" -> genRandomString(23),
           "randomColc" -> genRandomIntSet2(),
-          "randomCobd" -> genRandomStrTup2Map2(),
+          "randomCold" -> genRandomStrTup2Map2(),
           "randomCole" -> random.nextBoolean()        
           ))
 
