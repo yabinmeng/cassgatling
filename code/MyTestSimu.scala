@@ -22,7 +22,7 @@ class MyTestSimu extends Simulation {
   session.execute(s"USE $keyspace")
   val cqlConfig = cql.session(session)
 
-  // Create "goid" table
+  // Create Test Table
   session.execute(s"""CREATE TABLE IF NOT EXISTS $test_tbl (
                         cola text PRIMARY KEY,
                         cob text,
@@ -88,7 +88,7 @@ class MyTestSimu extends Simulation {
   //       to simulate
   def genRandomStrTup2Map2() : java.util.Map[String, java.util.List[Int]] = {
     var objectsMap = new HashMap[String, java.util.List[Int]]()
-    val itemNum : Int = random.nextInt(GOID_MAX_OBJECT_MAP_ITEM_NUM)
+    val itemNum : Int = random.nextInt(MAX_MAP_ITEM_NUM)
 
     var i = 0
     do {
@@ -102,8 +102,8 @@ class MyTestSimu extends Simulation {
     return objectsMap.asJava
   }
 
-  // Statement for goid table: insert
-  val insertStmt = session.prepare(s"""UPDATE $test_tbl
+  // Upsert Statement
+  val upsertStmt = session.prepare(s"""UPDATE $test_tbl
                                        SET colb=?, colc=colc+?, cold=cold+?, cole=?
                                        WHERE cola=?""")
 
@@ -119,8 +119,8 @@ class MyTestSimu extends Simulation {
 
   val myTestScn = scenario("My Test Table Load Scenario").repeat(1) {
     feed(feeder)
-    .exec(cql("insertStmt")
-        .execute(stmt_GoidInsert)
+    .exec(cql("upsertStmt")
+        .execute(upsertStmt)
         .withParams("${randomColb}", "${randomColc}", "${randomCold}", "${randomCole}", "${randomCola}")
         .consistencyLevel(ConsistencyLevel.LOCAL_ONE))
   }
