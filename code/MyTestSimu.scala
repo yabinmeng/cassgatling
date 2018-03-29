@@ -101,18 +101,18 @@ class MyTestSimu extends Simulation {
   //       to simulate
   def genRandomStrTup2Map2() : java.util.Map[String, java.util.List[Int]] = {
     val itemNum : Int = random.nextInt(MAX_MAP_ITEM_NUM)
-    var myStrTup2Map = new HashMap[String, java.util.List[Int]]()
+    var myStrTup2Map2 = new HashMap[String, java.util.List[Int]]()
 
     var i = 0
     do {
       val intList2 = List.fill[Int](2)(random.nextInt()).asJava
-      myStrTup2Map += (genRandomString(22) -> intList2)
+      myStrTup2Map2 += (genRandomString(22) -> intList2)
 
       i = i + 1
 
     } while (i < itemNum)
 
-    return myStrTup2Map.asJava
+    return myStrTup2Map2.asJava
   }
 
   // Upsert Statement
@@ -125,8 +125,8 @@ class MyTestSimu extends Simulation {
       Map(
           "randomCola" -> genRandomString(12),
           "randomColb" -> genRandomString(23),
-          "randomColc" -> genRandomIntSet2(),
-          "randomCold" -> genRandomStrTup2Map2(),
+          "randomColc" -> genRandomStrTup2Map2(),
+          "randomCold" -> genRandomIntSet2(),
           "randomCole" -> random.nextBoolean()        
           ))
 
