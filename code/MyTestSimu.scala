@@ -4,6 +4,7 @@ import scala.concurrent.duration.DurationInt
 
 import com.datastax.driver.core.Cluster
 import com.datastax.driver.core.ConsistencyLevel
+import com.datastax.driver.core.PlainTextAuthProvider;
 
 import io.gatling.core.Predef._
 import io.gatling.core.scenario.Simulation
@@ -15,10 +16,11 @@ import scala.collection.immutable.{HashMap, ListSet}
 class MyTestSimu extends Simulation {
   val keyspace = "testks"
   val test_tbl = "tbl1"
-  
   val contactPoints = "10.240.0.4"
+
   val cluster = Cluster.builder()
                 .addContactPoint(contactPoints)
+                .withAuthProvider(new PlainTextAuthProvider("cassandra", "cassandra"))
                 .build()
 
   val session = cluster.connect()
