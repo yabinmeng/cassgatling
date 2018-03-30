@@ -12,7 +12,11 @@ Note: At the moment, the latest version of Gatling framework is 2.3.1. However, 
 ### Procedure
 1. Set up Gatling framework and the CQL plug-in (just unzip, as per description found [here](https://github.com/gatling-cql/GatlingCql))
 2. Download the MyTestSimu.scala file and put it under folder <GATLING_HOME>/user-files/simulations/
-3. Execute the Gatling simulation (stress-testing) scenario by running command: <GATLING_HOME>/bin/gatling.sh. Follow the instructions on the command-line output. An example is as below. Simulation number 1 is the Cassandra stres-testing scenario as defined by this example.
+3. Execute the Gatling simulation (stress-testing) scenario by running command: <GATLING_HOME>/bin/gatling.sh. Follow the instructions on the command-line output. 
+
+---
+
+An example is as below. Simulation number 1 is the Cassandra stres-testing scenario as defined by this example.
 
 ```
 $ bin/gatling.sh
