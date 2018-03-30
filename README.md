@@ -14,6 +14,8 @@ Note: At the moment, the latest version of Gatling framework is 2.3.1. However, 
 2. Download the MyTestSimu.scala file and put it under folder <GATLING_HOME>/user-files/simulations/
 3. Execute the Gatling simulation (stress-testing) scenario by running command: <GATLING_HOME>/bin/gatling.sh. Follow the instructions on the command-line output. 
 
+NOTE: The simulation scenario (MyTestSimu.scala) is tested against a DSE cluster (version 5.1.6) with UserName/Password authentication. Please adjust accordingly for your case.
+
 ---
 
 An example is as below. Simulation number 1 is the Cassandra stres-testing scenario as defined by this example.
