@@ -11,11 +11,11 @@ Note: At the moment, the latest version of Gatling framework is 2.3.1. However, 
  
 ### Notes about Example Simulation Scenario
 The simulation scenario (MyTestSimu.scala) as included in this example simulates a mixed read/write workload. The core steps of the scenario are summarized below and you can follow the same steps when creating your own scenario:
-1. Set up connection to Cassandra/DSE cluster with proper properties, such as:
-++ contact points
-++ username/password (if authentication is enabled)
-++ load balancing policy
-++ etc.
++. Set up connection to Cassandra/DSE cluster with proper properties, such as:
+** contact points
+** username/password (if authentication is enabled)
+** load balancing policy
+** etc.
 
 ### Procedure
 1. Set up Gatling framework and the CQL plug-in (just unzip, as per description found [here](https://github.com/gatling-cql/GatlingCql))
