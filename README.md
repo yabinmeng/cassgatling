@@ -40,41 +40,60 @@ Select run description (optional)
 Simulation cassandra.MyTestSimu started...
 
 ================================================================================
-2018-03-30 01:38:13                                           5s elapsed
+2018-04-04 15:33:43                                           5s elapsed
 ---- Requests ------------------------------------------------------------------
-> Global                                                   (OK=92     KO=0     )
-> upsertStmt                                               (OK=92     KO=0     )
+> Global                                                   (OK=232    KO=0     )
+> upsertStmt                                               (OK=93     KO=0     )
+> readStmt                                                 (OK=139    KO=0     )
 
----- My Test Table Load Scenario -----------------------------------------------
+---- Read Workload Scenario ----------------------------------------------------
+[#                                                                         ]  1%
+          waiting: 8861   / active: 0      / done:139
+---- Write Workload Scenario ---------------------------------------------------
 [                                                                          ]  0%
-          waiting: 25108  / active: 0      / done:92
+          waiting: 20907  / active: 0      / done:93
 ================================================================================
 ... ...
 
-Simulation cassandra.MyTestSimu completed in 720 seconds
+================================================================================
+2018-04-04 15:43:39                                         600s elapsed
+---- Requests ------------------------------------------------------------------
+> Global                                                   (OK=30000  KO=0     )
+> upsertStmt                                               (OK=21000  KO=0     )
+> readStmt                                                 (OK=9000   KO=0     )
+
+---- Read Workload Scenario ----------------------------------------------------
+[##########################################################################]100%
+          waiting: 0      / active: 0      / done:9000
+---- Write Workload Scenario ---------------------------------------------------
+[##########################################################################]100%
+          waiting: 0      / active: 0      / done:21000
+================================================================================
+
+Simulation cassandra.MyTestSimu completed in 600 seconds
 Parsing log file(s)...
 Parsing log file(s) done
 Generating reports...
 
 ================================================================================
 ---- Global Information --------------------------------------------------------
-> request count                                      25200 (OK=25200  KO=0     )
+> request count                                      30000 (OK=30000  KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
-> max response time                                    253 (OK=253    KO=-     )
-> mean response time                                     7 (OK=7      KO=-     )
-> std deviation                                          7 (OK=7      KO=-     )
-> response time 50th percentile                          7 (OK=7      KO=-     )
-> response time 75th percentile                         11 (OK=11     KO=-     )
-> response time 95th percentile                         12 (OK=12     KO=-     )
-> response time 99th percentile                         22 (OK=22     KO=-     )
-> mean requests/sec                                     35 (OK=35     KO=-     )
+> max response time                                    224 (OK=224    KO=-     )
+> mean response time                                     2 (OK=2      KO=-     )
+> std deviation                                          5 (OK=5      KO=-     )
+> response time 50th percentile                          1 (OK=1      KO=-     )
+> response time 75th percentile                          2 (OK=2      KO=-     )
+> response time 95th percentile                          3 (OK=3      KO=-     )
+> response time 99th percentile                          7 (OK=7      KO=-     )
+> mean requests/sec                                     50 (OK=50     KO=-     )
 ---- Response Time Distribution ------------------------------------------------
-> t < 800 ms                                         25200 (100%)
+> t < 800 ms                                         30000 (100%)
 > 800 ms < t < 1200 ms                                   0 (  0%)
 > t > 1200 ms                                            0 (  0%)
 > failed                                                 0 (  0%)
 ================================================================================
 
-Reports generated in 5s.
-Please open the following file: /home/automaton/gatling-charts-highcharts-bundle-2.2.5/results/mytestsimu-1522365239303/index.html
+Reports generated in 4s.
+Please open the following file: /home/automaton/gatling-charts-highcharts-bundle-2.2.5/results/mytestsimu-1522856018600/index.html
 ```
