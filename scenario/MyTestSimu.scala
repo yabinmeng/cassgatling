@@ -115,14 +115,6 @@ class MyTestSimu extends Simulation {
     return myStrTup2Map2.asJava
   }
 
-  // Upsert Statement
-  val upsertStmt = session.prepare(s"""UPDATE $test_tbl
-                                       SET colb=?, colc=colc+?, cold=cold+?, cole=?
-                                       WHERE cola=?""")
-
-  // Read Statement
-  val readStmt = session.prepare(s"""SELECT * FROM $test_tbl WHERE cola=?""")
-
   // Random Column value generator 
   val feeder = Iterator.continually(
       // this feader will "feed" random data into our Sessions
@@ -133,6 +125,15 @@ class MyTestSimu extends Simulation {
           "randomCold" -> genRandomIntSet2(),
           "randomCole" -> random.nextBoolean()        
           ))
+
+
+  // Upsert Statement
+  val upsertStmt = session.prepare(s"""UPDATE $test_tbl
+                                       SET colb=?, colc=colc+?, cold=cold+?, cole=?
+                                       WHERE cola=?""")
+
+  // Read Statement
+  val readStmt = session.prepare(s"""SELECT * FROM $test_tbl WHERE cola=?""")
 
   // Write with LOCAL_ONE
   val myWriteTestScn = scenario("Write Workload Scenario").repeat(1) {
