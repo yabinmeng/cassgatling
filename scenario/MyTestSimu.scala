@@ -120,6 +120,10 @@ class MyTestSimu extends Simulation {
                                        SET colb=?, colc=colc+?, cold=cold+?, cole=?
                                        WHERE cola=?""")
 
+  // Read Statement
+  val readStmt = session.prepare(s"""SELECT * FROM $test_tbl WHERE cola=?""")
+
+  // Random Column value generator 
   val feeder = Iterator.continually(
       // this feader will "feed" random data into our Sessions
       Map(
@@ -130,7 +134,8 @@ class MyTestSimu extends Simulation {
           "randomCole" -> random.nextBoolean()        
           ))
 
-  val myTestScn = scenario("My Test Table Load Scenario").repeat(1) {
+  // Write with LOCAL_ONE
+  val myWriteTestScn = scenario("Write Workload Scenario").repeat(1) {
     feed(feeder)
     .exec(cql("upsertStmt")
         .execute(upsertStmt)
@@ -138,9 +143,24 @@ class MyTestSimu extends Simulation {
         .consistencyLevel(ConsistencyLevel.LOCAL_ONE))
   }
 
+  // Read with LOCAL_QUORUM
+  val myReadTestScn = scenario("Read Workload Scenario").repeat(1) {
+    feed(feeder)
+    .exec(cql("readStmt")
+        .execute(readStmt)
+        .withParams("${randomCola}")
+        .consistencyLevel(ConsistencyLevel.LOCAL_QUORUM))
+  }
+
   setUp(
-    myTestScn.inject(
-      rampUsersPerSec(20) to 50 during(12 minutes)
+    // Injects random number of users (20~50) per second for 10 minutes 
+    myWriteTestScn.inject(
+      rampUsersPerSec(20) to 50 during(10 minutes)
+    ).protocols(cqlConfig),
+
+    // Injects constant number of users (30) per second for 5 minutes
+    myReadTestScn.inject(
+      constantUsersPerSec(30) during(5 minutes)
     ).protocols(cqlConfig)
   )
 
