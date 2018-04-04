@@ -14,7 +14,7 @@ The simulation scenario (MyTestSimu.scala) as included in this example simulates
 1. Set up connection to Cassandra/DSE cluster with proper properties, such as "contact points", "load balancing policy", etc. 
 2. Create the application keyspace and table schema
 3. Define the (random) value generator for table columns based on their types
-4. Define the Read/Write statements to be used in the simulation, including the proper Consistency Level to be used
+4. Define the Read/Write statements to be used in the simulation, including the Consistency Level associated with the statements
 5. Set up the user simulation behavior for Read and Write. The key parts include:
 * How many concurrent users (can be constant or some variance) to be simulated per second.
 * How long does the simulation executes
