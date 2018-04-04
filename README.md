@@ -5,7 +5,7 @@ This is a sample code of utilizing [Gatling](https://gatling.io/) testing framew
 Note: At the moment, the latest version of Gatling framework is 2.3.1. However, the CQL plugin 0.0.7 is not compatible with Gatling 3.1.5 yet. 
 
 1. Gatling high charts bundle version 2.2.5: 
-  + https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/   
+  + https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/2.2.5/   
 2. Gatling CQL plugin v0.0.7 (latest version as of writing)
   + https://github.com/gatling-cql/GatlingCql/releases
 
