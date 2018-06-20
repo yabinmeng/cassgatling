@@ -2,12 +2,14 @@
 This is a sample code of utilizing [Gatling](https://gatling.io/) testing framework for stress testing with DSE
 
 ### Pre-requisites
-Note: At the moment, the latest version of Gatling framework is 2.3.1. However, the CQL plugin 0.0.7 is not compatible with Gatling 3.1.5 yet. 
+Note: At the moment, the latest version of Gatling framework is 2.3.1. However, the CQL plugin 0.0.7 is not compatible with Gatling 2.3.1 yet. 
 
 1. Gatling high charts bundle version 2.2.5: 
   + https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/2.2.5/   
 2. Gatling CQL plugin v0.0.7 (latest version as of writing)
   + https://github.com/gatling-cql/GatlingCql/releases
+  
+**[NOTES]** - as of April 10, 2018, Gatling CQL plugin has released version 0.0.8 which works with the latest Gatling framework 2.3.1.
  
 ### Notes about the Example Simulation Scenario
 The simulation scenario (MyTestSimu.scala) as included in this example simulates a mixed read/write workload. The core steps of the scenario are summarized below and you can follow the same steps when creating your own scenario:
