@@ -10,7 +10,7 @@ Note: At the moment, the latest version of Gatling framework is 2.3.1. However, 
   + https://github.com/gatling-cql/GatlingCql/releases
   
   
-**[NOTES]** - as of April 10, 2018, Gatling CQL plugin has released version 0.0.8 which works with the latest Gatling framework 2.3.1. Please feel free to download these latest versions for your test.
+**[NOTES]** - as of April 10, 2018, Gatling CQL plugin has released version 0.0.8 which works with the latest Gatling framework 2.3.1. Please feel free to download these latest versions for your test. Please also be aware that Gatling 2.3.1 requires scala 2.1.2 and make sure your scala version is upgraded first.
  
  
 ### Notes about the Example Simulation Scenario
