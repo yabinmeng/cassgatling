@@ -23,7 +23,7 @@ import scala.collection.immutable.{HashMap, ListSet}
 class MyTestSimu extends Simulation {
   val keyspace = "testks"
   val test_tbl = "testks.ptnt_cndtn_by_ptnt_cd"
-  val contactPoints = "x.x.x.x"
+  val contactPoints = "172.31.5.134"
   val localDCName = "DC1"
 
 
@@ -193,14 +193,16 @@ class MyTestSimu extends Simulation {
   }
 
   setUp(
-    // Injects random number of users (20~50) per second for 10 minutes
+    // Constan injestion rate: # of users per sec., for 30 mins
+    // write/read ratio is 9:1
+
     myWriteTestScn.inject(
-      rampUsersPerSec(20) to 50 during(10 minutes)
+      //rampUsersPerSec(20) to 50 during(10 minutes)
+      constantUsersPerSec(9000) during(30 minutes)
     ).protocols(cqlConfig),
 
-    // Injects constant number of users (30) per second for 5 minutes
     myReadTestScn.inject(
-      constantUsersPerSec(10) during(5 minutes)
+      constantUsersPerSec(1000) during(30 minutes)
     ).protocols(cqlConfig)
   )
 
