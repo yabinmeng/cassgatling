@@ -23,7 +23,7 @@ import scala.collection.immutable.{HashMap, ListSet}
 class MyTestSimu extends Simulation {
   val keyspace = "testks"
   val test_tbl = "testks.ptnt_cndtn_by_ptnt_cd"
-  val contactPoints = "172.31.5.134"
+  val contactPoints = "x.x.x.x"
   val localDCName = "DC1"
 
 
