@@ -74,7 +74,7 @@ class MyTestSimu extends Simulation {
                   """)
 
 
-  // Maximum number of (randomly generated) items in a set
+  // Maximum number of (randomly generated) key/value pairs in a map
   val MAX_MAP_ITEM_NUM = 5
 
   val random = new util.Random
