@@ -11,7 +11,7 @@ Note: At the moment, the latest version of Gatling framework is 2.3.1. However, 
   
 #### Gatling Framework and Gatling CQL Version Compatibility 
 
-Please be **noted** that a specific Gatling CQL version (e.g. 0.0.7) may only work with a certain version of Gatling framework. Incompatible versions will trigger failures when launching simuation scenarios. The following version combinations have been tested out working.
+Please be **noted** that a specific Gatling CQL version may only work with a certain version of Gatling framework. Incompatible versions will trigger failures when launching simuation scenarios. The following version combinations have been tested out working fine.
 
 | Gatling CQL Plugin | Gatling Framework|
 |---|---|
