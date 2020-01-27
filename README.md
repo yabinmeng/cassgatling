@@ -15,8 +15,8 @@ Please be **noted** that a specific Gatling CQL version (e.g. 0.0.7) may only wo
 
 | Gatling CQL Plugin | Gatling Framework|
 |---|---|
-| [0.0.7](https://github.com/gatling-cql/GatlingCql/releases/download/GatlingCql-0.0.7/GatlingCql-0.0.7-release.tar.gz) | [2.2.x] (https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/2.2.5/gatling-charts-highcharts-bundle-2.2.5-bundle.zip) |
-| [0.0.8](https://github.com/gatling-cql/GatlingCql/releases/download/GatlingCql-0.0.8/GatlingCql-0.0.8-release.tar.gz) | [2.3.x] (https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/2.3.1/gatling-charts-highcharts-bundle-2.3.1-bundle.zip) |
+| [0.0.7](https://github.com/gatling-cql/GatlingCql/releases/download/GatlingCql-0.0.7/GatlingCql-0.0.7-release.tar.gz) | [2.2.x](https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/2.2.5/gatling-charts-highcharts-bundle-2.2.5-bundle.zip) |
+| [0.0.8](https://github.com/gatling-cql/GatlingCql/releases/download/GatlingCql-0.0.8/GatlingCql-0.0.8-release.tar.gz) | [2.3.x](https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/2.3.1/gatling-charts-highcharts-bundle-2.3.1-bundle.zip) |
 | [3.0.0](https://github.com/gatling-cql/GatlingCql/releases/download/GatlingCql-3.0.0/GatlingCql-3.0.0-release.tar.gz) | [3.0.x](https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/3.0.3/gatling-charts-highcharts-bundle-3.0.3-bundle.zip) |
 
  
